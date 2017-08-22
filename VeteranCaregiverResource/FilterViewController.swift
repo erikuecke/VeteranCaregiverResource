@@ -33,7 +33,7 @@ class FilterViewController: UITableViewController {
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedObjectContext,
-            sectionNameKeyPath: "category",
+            sectionNameKeyPath: "nil",
             cacheName: "Resources")
         fetchedResultsController.delegate = self
         return fetchedResultsController

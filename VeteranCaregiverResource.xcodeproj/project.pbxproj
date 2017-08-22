@@ -17,6 +17,7 @@
 		9EE8D8561F4C953100477D6E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8D8551F4C953100477D6E /* FilterViewController.swift */; };
 		9EE8D8591F4CA3E800477D6E /* ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8D8581F4CA3E700477D6E /* ResourceCell.swift */; };
 		9EE8D85B1F4CBD3500477D6E /* VAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8D85A1F4CBD3500477D6E /* VAClient.swift */; };
+		9EE8D85D1F4CDEE900477D6E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8D85C1F4CDEE900477D6E /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9EE8D8551F4C953100477D6E /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		9EE8D8581F4CA3E700477D6E /* ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceCell.swift; sourceTree = "<group>"; };
 		9EE8D85A1F4CBD3500477D6E /* VAClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAClient.swift; sourceTree = "<group>"; };
+		9EE8D85C1F4CDEE900477D6E /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				9E03FA4E1F4B8E4100A3E8AB /* Resource+CoreDataClass.swift */,
 				9E03FA4F1F4B8E4100A3E8AB /* Resource+CoreDataProperties.swift */,
 				9E03FA4B1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld */,
+				9EE8D85C1F4CDEE900477D6E /* Functions.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				9EE8D8561F4C953100477D6E /* FilterViewController.swift in Sources */,
 				9EE8D8591F4CA3E800477D6E /* ResourceCell.swift in Sources */,
 				9E03FA381F4B71A100A3E8AB /* AppDelegate.swift in Sources */,
+				9EE8D85D1F4CDEE900477D6E /* Functions.swift in Sources */,
 				9E03FA4D1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld in Sources */,
 				9E03FA511F4B8E4100A3E8AB /* Resource+CoreDataProperties.swift in Sources */,
 				9EE8D85B1F4CBD3500477D6E /* VAClient.swift in Sources */,

@@ -100,7 +100,6 @@ class VAClient: NSObject {
                     sendError(error: "Cannot Parse Dictionary")
                     return
                 }
-                print("Printing resourceArrayOfDict form client: \(resourceArrayOfDict)")
                 completionHandlerForGetVAResources(resourceArrayOfDict,nil)
                 
             }

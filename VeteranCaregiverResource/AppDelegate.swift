@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         checkForData()
+        print(applicationDocumentsDirectory)
         return true
     }
 
@@ -72,49 +73,82 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Managed Object Context
     lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
     
-
     
-    //NSFetchedResultsController
-    lazy var fetchedResultsController: NSFetchedResultsController<Resource> = {
-        
-        let fetchRequest = NSFetchRequest<Resource>()
-        
-        let entity = Resource.entity()
-        fetchRequest.entity = entity
-        
-        let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
-        
-        fetchRequest.sortDescriptors = [sortDescriptor1]
-        
-        fetchRequest.fetchBatchSize = 20
-        
-        let fetchedResultsController = NSFetchedResultsController(
-            fetchRequest: fetchRequest,
-            managedObjectContext: self.managedObjectContext,
-            sectionNameKeyPath: "category",
-            cacheName: "Resources")
-        fetchedResultsController.delegate = self as? NSFetchedResultsControllerDelegate
-        return fetchedResultsController
-    }()
+    
+//    //NSFetchedResultsController
+//    lazy var fetchedResultsController: NSFetchedResultsController<Resource> = {
+//        
+//        let fetchRequest = NSFetchRequest<Resource>()
+//        
+//        let entity = Resource.entity()
+//        fetchRequest.entity = entity
+//        
+//        let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
+//        
+//        fetchRequest.sortDescriptors = [sortDescriptor1]
+//        
+//        fetchRequest.fetchBatchSize = 20
+//        
+//        let fetchedResultsController = NSFetchedResultsController(
+//            fetchRequest: fetchRequest,
+//            managedObjectContext: self.managedObjectContext,
+//            sectionNameKeyPath: "nil",
+//            cacheName: "Resources")
+//        fetchedResultsController.delegate = self as? NSFetchedResultsControllerDelegate
+//        return fetchedResultsController
+//    }()
     
     // Import Json if Core Data is empty
-    
+    var resources = [Resource]()
     func checkForData() {
-        if self.fetchedResultsController.fetchedObjects == nil {
-            
-            
+        
+        let fetchRequest = NSFetchRequest<Resource>()
+        // 2 
+        let entity = Resource.entity()
+        fetchRequest.entity = entity
+        // 3 
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            // 4 
+            resources = try managedObjectContext.fetch(fetchRequest)
+        } catch {
+            fatalCoreDataError(error)
+        }
+        
+
+        
+        if resources.count == 0 {
             VAClient.sharedInstance().getVAResources(completionHandlerForGetVAResources: { ( arrayOfResources, error) in
                 
                 if let error = error {
                     print("Something is wrong with download: \(error.description)")
                 } else {
-                    print("Looking good from app delegate")
+                    
+                    for singleResource in arrayOfResources! {
+                        let resource = Resource(entity: Resource.entity(), insertInto: self.managedObjectContext)
+                        resource.title = singleResource["title"] as! String
+                        resource.linkName = singleResource["linkName"] as? String
+                        resource.phoneNumber = singleResource["phoneNumber"] as? String
+                        resource.content = singleResource["contet"] as? String
+                        resource.subjects = singleResource["subjects"] as? [String]
+                        resource.geographicServiceLocations = singleResource["geographicServiceLocations"] as? [[String: AnyObject]]
+                        resource.saved = false
+                        
+                        do {
+                            try self.managedObjectContext.save()
+                        } catch let error as NSError {
+                            print("Could not save. \(error), \(error.userInfo)")
+                        }
+                    }
                 }
+                
             })
                 
             
         } else {
-            print("There is stuff in here")
+            print(resources)
         }
     }
     
