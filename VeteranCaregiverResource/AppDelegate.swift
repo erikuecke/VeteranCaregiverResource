@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        // Managed Object Context for viewcontrollers
+        let tabBarController = window!.rootViewController as! UITabBarController
+        
+        // Basic table text viewcontroller
+        if let tabBarViewControllers = tabBarController.viewControllers {
+            let navigationController = tabBarViewControllers[0] as! UINavigationController
+            let filterViewController = navigationController.viewControllers[0] as! FilterViewController
+            filterViewController.managedObjectContext = managedObjectContext
+        }
+        
+        
+        checkForData()
         return true
     }
 
@@ -40,7 +55,78 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    // MARK: CORE DATA!!
+    
+    // Persistant Container
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "VeteranCaregiverResource")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error {
+                fatalError("Could load data store: \(error)")
+            }
+        })
+        return container
+    }()
+    
+    // Managed Object Context
+    lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
+    
 
-
+    
+    //NSFetchedResultsController
+    lazy var fetchedResultsController: NSFetchedResultsController<Resource> = {
+        
+        let fetchRequest = NSFetchRequest<Resource>()
+        
+        let entity = Resource.entity()
+        fetchRequest.entity = entity
+        
+        let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor1]
+        
+        fetchRequest.fetchBatchSize = 20
+        
+        let fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: self.managedObjectContext,
+            sectionNameKeyPath: "category",
+            cacheName: "Resources")
+        fetchedResultsController.delegate = self as? NSFetchedResultsControllerDelegate
+        return fetchedResultsController
+    }()
+    
+    // Import Json if Core Data is empty
+    
+    func checkForData() {
+        if self.fetchedResultsController.fetchedObjects == nil {
+            
+            
+            VAClient.sharedInstance().getVAResources(completionHandlerForGetVAResources: { ( arrayOfResources, error) in
+                
+                if let error = error {
+                    print("Something is wrong with download: \(error.description)")
+                } else {
+                    print("Looking good from app delegate")
+                }
+            })
+                
+            
+        } else {
+            print("There is stuff in here")
+        }
+    }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
 
