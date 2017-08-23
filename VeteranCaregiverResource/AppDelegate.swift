@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+       
         
         // Managed Object Context for viewcontrollers
         let tabBarController = window!.rootViewController as! UITabBarController
@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let filterViewController = navigationController.viewControllers[0] as! FilterViewController
             filterViewController.managedObjectContext = managedObjectContext
         }
-        
         
         checkForData()
         print(applicationDocumentsDirectory)
@@ -73,51 +72,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Managed Object Context
     lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
     
+
+    // MARK: JSON IMPORT/ CORE DATA CHECK
     
-    
-//    //NSFetchedResultsController
-//    lazy var fetchedResultsController: NSFetchedResultsController<Resource> = {
-//        
-//        let fetchRequest = NSFetchRequest<Resource>()
-//        
-//        let entity = Resource.entity()
-//        fetchRequest.entity = entity
-//        
-//        let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
-//        
-//        fetchRequest.sortDescriptors = [sortDescriptor1]
-//        
-//        fetchRequest.fetchBatchSize = 20
-//        
-//        let fetchedResultsController = NSFetchedResultsController(
-//            fetchRequest: fetchRequest,
-//            managedObjectContext: self.managedObjectContext,
-//            sectionNameKeyPath: "nil",
-//            cacheName: "Resources")
-//        fetchedResultsController.delegate = self as? NSFetchedResultsControllerDelegate
-//        return fetchedResultsController
-//    }()
-    
-    // Import Json if Core Data is empty
     var resources = [Resource]()
     func checkForData() {
         
         let fetchRequest = NSFetchRequest<Resource>()
-        // 2 
+        // 2
         let entity = Resource.entity()
         fetchRequest.entity = entity
-        // 3 
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        // 3
         
         do {
-            // 4 
+            // 4
             resources = try managedObjectContext.fetch(fetchRequest)
         } catch {
             fatalCoreDataError(error)
         }
+        print(resources.count)
         
-
         
         if resources.count == 0 {
             VAClient.sharedInstance().getVAResources(completionHandlerForGetVAResources: { ( arrayOfResources, error) in
@@ -125,31 +99,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let error = error {
                     print("Something is wrong with download: \(error.description)")
                 } else {
+                    self.saveInCoreDataWith(array: arrayOfResources!)
                     
-                    for singleResource in arrayOfResources! {
-                        let resource = Resource(entity: Resource.entity(), insertInto: self.managedObjectContext)
-                        resource.title = singleResource["title"] as! String
-                        resource.linkName = singleResource["linkName"] as? String
-                        resource.phoneNumber = singleResource["phoneNumber"] as? String
-                        resource.content = singleResource["contet"] as? String
-                        resource.subjects = singleResource["subjects"] as? [String]
-                        resource.geographicServiceLocations = singleResource["geographicServiceLocations"] as? [[String: AnyObject]]
-                        resource.saved = false
-                        
-                        do {
-                            try self.managedObjectContext.save()
-                        } catch let error as NSError {
-                            print("Could not save. \(error), \(error.userInfo)")
-                        }
-                    }
                 }
                 
             })
-                
+            
             
         } else {
-            print(resources)
+            print("it didnt work")
         }
+    }
+    
+    // Save in core data method
+    private func saveInCoreDataWith(array: [[String: AnyObject]]) {
+        _ = array.map{self.createPhotoEntityFrom(dictionary: $0)}
+        
+        do {
+            try managedObjectContext.save()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    // Create Intity from Array Dict
+    private func createPhotoEntityFrom(dictionary: [String: AnyObject]) -> NSManagedObject? {
+        
+        if let resourceEntity = NSEntityDescription.insertNewObject(forEntityName: "Resource", into: managedObjectContext) as? Resource {
+            resourceEntity.title = dictionary["title"] as! String
+            resourceEntity.content = dictionary["content"] as? String
+            resourceEntity.subjects = dictionary["subjects"] as? [String]
+            resourceEntity.linkName = dictionary["linkName"] as? String
+            resourceEntity.phoneNumber = dictionary["phoneNumber"] as? String
+            resourceEntity.geographicServiceLocations = dictionary["geographicServiceLocation"] as? [[String: AnyObject]]
+            resourceEntity.saved = false
+            
+            return resourceEntity
+        }
+        return nil
     }
     
     

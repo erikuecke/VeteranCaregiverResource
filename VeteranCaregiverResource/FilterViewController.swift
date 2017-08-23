@@ -28,7 +28,7 @@ class FilterViewController: UITableViewController {
         
         fetchRequest.sortDescriptors = [sortDescriptor1]
         
-        fetchRequest.fetchBatchSize = 20
+        fetchRequest.fetchBatchSize = 3785
         
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
@@ -38,6 +38,28 @@ class FilterViewController: UITableViewController {
         fetchedResultsController.delegate = self
         return fetchedResultsController
     }()
+    
+    // View Did Load
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("it loaded at least")
+        
+        let fetchRequest = NSFetchRequest<Resource>()
+        // 2
+        let entity = Resource.entity()
+        fetchRequest.entity = entity
+        // 3
+        
+        do {
+            // 4
+           let resources = try managedObjectContext.fetch(fetchRequest)
+            let testResource = resources[3000]
+            print(testResource.title)
+        } catch {
+            fatalCoreDataError(error)
+        }
+       
+    }
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,6 +77,10 @@ class FilterViewController: UITableViewController {
         cell.configure(for: resource)
         return cell
     }
+    
+    
+    
+    
 }
 
 
