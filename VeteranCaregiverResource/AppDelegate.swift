@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.swift
 //  VeteranCaregiverResource
 //
@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navigationController = tabBarViewControllers[0] as! UINavigationController
             let filterViewController = navigationController.viewControllers[0] as! FilterViewController
             filterViewController.managedObjectContext = managedObjectContext
+            print("Assigned managed object context")
         }
         
         checkForData()

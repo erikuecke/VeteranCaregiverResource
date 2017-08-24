@@ -14,7 +14,7 @@ class FilterViewController: UITableViewController {
     
     // ManagedObjectContext
     var managedObjectContext: NSManagedObjectContext!
-    
+   
     
     //NSFetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController<Resource> = {
@@ -27,13 +27,16 @@ class FilterViewController: UITableViewController {
         let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
         
         fetchRequest.sortDescriptors = [sortDescriptor1]
+        //NSCompoundPredicate(type: .AndPredicateType, subpredicates: [NSPredicate(format: "age > 25"), NSPredicate(format: "firstName = %@", "Quentin")])
+        let compoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [NSPredicate(format: "subjects contains[c] %@", "Housing"), NSPredicate(format: "subjects contains[c] %@", "Health")])
         
-        fetchRequest.fetchBatchSize = 3785
-        
+//        let textCompoundPRedicate = NSCompoundPredicate(o)
+        // NSPredicate(format: "name contains[c] %@ AND nickName contains[c] %@", argumentArray: [name, nickname])
+        fetchRequest.predicate = compoundPredicate
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedObjectContext,
-            sectionNameKeyPath: "nil",
+            sectionNameKeyPath: nil,
             cacheName: "Resources")
         fetchedResultsController.delegate = self
         return fetchedResultsController
@@ -42,43 +45,48 @@ class FilterViewController: UITableViewController {
     // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("it loaded at least")
-        
-        let fetchRequest = NSFetchRequest<Resource>()
-        // 2
-        let entity = Resource.entity()
-        fetchRequest.entity = entity
-        // 3
-        
+       performFetch()
+    
+    }
+    
+    func performFetch() {
         do {
-            // 4
-           let resources = try managedObjectContext.fetch(fetchRequest)
-            let testResource = resources[3000]
-            print(testResource.title)
+            try fetchedResultsController.performFetch()
         } catch {
             fatalCoreDataError(error)
         }
-       
     }
+    
+    let icons = [
+        "All",
+        "Health",
+        "Benefits & Compensation",
+        "Housing",
+        "Education & Training",
+        "Employment",
+        "Family & Caregiver Support",
+        "Transportation & Travel",
+        "Homeless Assistance",
+        "Other Service & Resources"]
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let sectionInfo = fetchedResultsController.sections?[section] {
-          return sectionInfo.numberOfObjects
-        } else {
-            return 0
-        }
-        
+        let sectionInfo = fetchedResultsController.sections?[section]
+        print("number of objects is: \(sectionInfo!.numberOfObjects)")
+        return sectionInfo!.numberOfObjects
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell( withIdentifier: "ResourceCell", for: indexPath) as! ResourceCell
-        let resource = fetchedResultsController.object(at: indexPath)
-        cell.configure(for: resource)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath)
+        
+        let iconName = icons[indexPath.row]
+        cell.textLabel!.text = iconName
+        cell.imageView!.image = UIImage(named: iconName)
+        
         return cell
     }
-    
-    
     
     
 }
