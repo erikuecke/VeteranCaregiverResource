@@ -23,10 +23,12 @@ class ResourceCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
         collectionView.isScrollEnabled = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         
         
     }
@@ -52,7 +54,7 @@ class ResourceCell: UITableViewCell {
         }
         
         photoImageView.image = thumbnail(for: resource)
-        
+        collectionView.reloadData()
         
         
     }
@@ -72,22 +74,24 @@ class ResourceCell: UITableViewCell {
 
 }
 
-//extension ResourceCell: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return subjectsArray.count
-//        
-//    }
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        //
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IconCollectionViewCell", for: indexPath) as! IconCollectionViewCell
-//        
-//        cell.collectionImageView.image = UIImage(named: "\(subjectsArray[indexPath.row])")
-//        
-// 
-//
-//        return cell
-//    }
+extension ResourceCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return subjectsArray.count
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! IconCollectionViewCell
+        
+        cell.collectionImageView.image = UIImage(named: "\(subjectsArray[indexPath.row])")
+        
+        return cell
+    }
+}
+
+extension ResourceCell: UICollectionViewDelegate {
     
 }
+    
+    
+
 
