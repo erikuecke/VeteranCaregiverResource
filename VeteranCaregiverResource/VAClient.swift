@@ -100,10 +100,27 @@ class VAClient: NSObject {
                     sendError(error: "Cannot Parse Dictionary")
                     return
                 }
-                completionHandlerForGetVAResources(resourceArrayOfDict,nil)
+                
+                let cleanedArrayOfResource = self.removeDuplicates(resourceArrayOfDict)
+                
+                
+                completionHandlerForGetVAResources(cleanedArrayOfResource,nil)
                 
             }
 
         }
+    }
+    
+    // Cleaing json result of duplicate resources method
+    func removeDuplicates(_ arrayOfDicts: [[String: AnyObject]]) -> [[String: AnyObject]] {
+        var cleanedArrayOfResources = [[String: AnyObject]]()
+        var arrOfDict = [String]()
+        for dict in arrayOfDicts {
+            if let title = dict["title"], !arrOfDict.contains(title as! String) {
+                cleanedArrayOfResources.append(dict)
+                arrOfDict.append(title as! String)
+            }
+        }
+        return cleanedArrayOfResources
     }
 }

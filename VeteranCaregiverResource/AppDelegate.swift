@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Basic table text viewcontroller
         if let tabBarViewControllers = tabBarController.viewControllers {
             let navigationController = tabBarViewControllers[0] as! UINavigationController
-            let searchViewController = navigationController.viewControllers[1] as! SearchListViewController
-            searchViewController.managedObjectContext = managedObjectContext
+            let filterViewController = navigationController.viewControllers[0] as! FilterViewController
+            filterViewController.managedObjectContext = managedObjectContext
             
         }
         
@@ -100,6 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let error = error {
                     print("Something is wrong with download: \(error.description)")
                 } else {
+                
+                    
                     self.saveInCoreDataWith(array: arrayOfResources!)
                     
                 }

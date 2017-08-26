@@ -12,7 +12,7 @@ import CoreData
 
 class FilterViewController: UITableViewController {
     
-        
+        var managedObjectContext: NSManagedObjectContext!
     
     
     let icons = [
@@ -29,12 +29,11 @@ class FilterViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return icons.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath) as! ResourceCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath)
         
         let iconName = icons[indexPath.row]
         cell.textLabel!.text = iconName
@@ -43,6 +42,14 @@ class FilterViewController: UITableViewController {
         return cell
     }
     
+    // Prepare for Seguew to pick category
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SearchSegue" {
+            let controller = segue.destination as! SearchListViewController
+            controller.title = "Search All"
+            controller.managedObjectContext = managedObjectContext
+        }
+    }
     
 }
 

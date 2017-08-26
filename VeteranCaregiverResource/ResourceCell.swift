@@ -15,49 +15,46 @@ class ResourceCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    // Collection Image
+    
+    var subjectsArray = [String]()
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        collectionView.isScrollEnabled = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        
     }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+    
 
-//    // Configure text for Cell
-//    func configure(for resource: Resource) {
-//        if resource.title.isEmpty {
-//            titleLabel.text = "(No Description)"
-//        } else {
-//            titleLabel.text = resource.title
-//        }
-//        
-//        if (resource.content?.isEmpty)! {
-//           descriptionLabel.text = "(No Description)"
-//        } else {
-//            descriptionLabel.text = resource.content
-//        }
-//    }
+
     
     // Configure text for Cell
     func configure(for resource: Resource) {
-        
+        subjectsArray = resource.subjects!
         if resource.title.isEmpty {
             titleLabel.text = "(No Description)"
         } else {
             titleLabel.text = resource.title
         }
-
-        if (resource.content?.isEmpty)! {
-           descriptionLabel.text = "(No Description)"
-        } else {
-            descriptionLabel.text = resource.content
-        }
         
         photoImageView.image = thumbnail(for: resource)
+        
+        
+        
     }
     
     // Add image to cell
@@ -74,3 +71,23 @@ class ResourceCell: UITableViewCell {
 
 
 }
+
+//extension ResourceCell: UICollectionViewDelegate, UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return subjectsArray.count
+//        
+//    }
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        //
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IconCollectionViewCell", for: indexPath) as! IconCollectionViewCell
+//        
+//        cell.collectionImageView.image = UIImage(named: "\(subjectsArray[indexPath.row])")
+//        
+// 
+//
+//        return cell
+//    }
+    
+    
+}
+

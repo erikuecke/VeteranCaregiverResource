@@ -15,6 +15,8 @@ class SearchListViewController: UITableViewController {
     // ManagedObjectContext
     var managedObjectContext: NSManagedObjectContext!
     
+    // Predicate filter
+    var predicateFilter: String!
     
     //NSFetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController<Resource> = {
@@ -28,11 +30,12 @@ class SearchListViewController: UITableViewController {
         
         fetchRequest.sortDescriptors = [sortDescriptor1]
         //NSCompoundPredicate(type: .AndPredicateType, subpredicates: [NSPredicate(format: "age > 25"), NSPredicate(format: "firstName = %@", "Quentin")])
-        let compoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [NSPredicate(format: "subjects contains[c] %@", "Housing"), NSPredicate(format: "subjects contains[c] %@", "Health")])
+//        let compoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [NSPredicate(format: "subjects contains[c] %@", "Housing"), NSPredicate(format: "subjects contains[c] %@", "Health")])
         
         //        let textCompoundPRedicate = NSCompoundPredicate(o)
         // NSPredicate(format: "name contains[c] %@ AND nickName contains[c] %@", argumentArray: [name, nickname])
-        fetchRequest.predicate = compoundPredicate
+
+//        fetchRequest.predicate = compoundPredicate
         
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
@@ -90,7 +93,7 @@ class SearchListViewController: UITableViewController {
 }
 
 // FilterViewController: NSFetchedResultsControllerDelegate
-extension FilterViewController: NSFetchedResultsControllerDelegate {
+extension SearchListViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         print("*** controllerWillChangeContent")
