@@ -12,11 +12,24 @@ import CoreData
 
 class SearchListViewController: UITableViewController {
     
+    // 1 Create search Controller
+    let searchController = UISearchController(searchResultsController: nil)
+    
     // ManagedObjectContext
     var managedObjectContext: NSManagedObjectContext!
     
     // Predicate filter
-    var predicateFilter: String!
+    var testPredicate: NSPredicate?
+//    var predicateFilter: String!
+    var fetchCompoundPredicate: NSCompoundPredicate? {
+        didSet {
+            NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: "Resources")
+            
+            fetchedResultsController.fetchRequest.predicate = fetchCompoundPredicate
+            performFetch()
+            print("didSet fetch Compound")
+        }
+    }
     
     //NSFetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController<Resource> = {
@@ -28,15 +41,15 @@ class SearchListViewController: UITableViewController {
         
         let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
         
+        
         fetchRequest.sortDescriptors = [sortDescriptor1]
         //NSCompoundPredicate(type: .AndPredicateType, subpredicates: [NSPredicate(format: "age > 25"), NSPredicate(format: "firstName = %@", "Quentin")])
 //        let compoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [NSPredicate(format: "subjects contains[c] %@", "Housing"), NSPredicate(format: "subjects contains[c] %@", "Health")])
         
-        //        let textCompoundPRedicate = NSCompoundPredicate(o)
+
         // NSPredicate(format: "name contains[c] %@ AND nickName contains[c] %@", argumentArray: [name, nickname])
 
-//        fetchRequest.predicate = compoundPredicate
-        
+
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedObjectContext,
@@ -54,14 +67,23 @@ class SearchListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("it loaded at least")
+
         performFetch()
+        
+        // 3 Set up SearchController parameters
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         
     }
     
     func performFetch() {
+        
+        
         do {
-            try fetchedResultsController.performFetch()
+            try self.fetchedResultsController.performFetch()
         } catch {
             fatalCoreDataError(error)
         }
@@ -86,10 +108,44 @@ class SearchListViewController: UITableViewController {
     }
 
     
-    // Configureing Cell
+ 
+    // 5
+    // MARK: - Private instance methods
     
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+//        filteredCandies = candies.filter({( candy : Candy) -> Bool in
+//            return candy.name.lowercased().contains(searchText.lowercased())
+//        })
+        
+//        fetchCompoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [NSPredicate(format: "title contains[c] %@", predicateFilter), NSPredicate(format: "content contains[c] %@", predicateFilter)])
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: "Resources")
+        self.testPredicate = NSPredicate(format: "title contains[c] %@", searchText)
+        
+        do {
+            print(self.fetchedResultsController.fetchRequest.predicate)
+            try fetchedResultsController.performFetch()
+            print("trying fetch")
+            
+        } catch {
+            print(error)
+        }
+        
+        tableView.reloadData()
+    }
+    
+}
 
-    
+// 2
+extension SearchListViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
 }
 
 // FilterViewController: NSFetchedResultsControllerDelegate
@@ -145,3 +201,5 @@ extension SearchListViewController: NSFetchedResultsControllerDelegate {
         tableView.endUpdates()
     }
 }
+
+
