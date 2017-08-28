@@ -49,7 +49,7 @@ class SearchListViewController: UITableViewController {
 
         // NSPredicate(format: "name contains[c] %@ AND nickName contains[c] %@", argumentArray: [name, nickname])
 
-
+        fetchRequest.predicate = nil
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedObjectContext,
@@ -80,7 +80,6 @@ class SearchListViewController: UITableViewController {
     }
     
     func performFetch() {
-        
         
         do {
             try self.fetchedResultsController.performFetch()
@@ -122,12 +121,12 @@ class SearchListViewController: UITableViewController {
 //            return candy.name.lowercased().contains(searchText.lowercased())
 //        })
         
-//        fetchCompoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [NSPredicate(format: "title contains[c] %@", predicateFilter), NSPredicate(format: "content contains[c] %@", predicateFilter)])
+//        fetchCompoundPredicate =
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: "Resources")
-        self.testPredicate = NSPredicate(format: "title contains[c] %@", searchText)
+        fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "title contains[c] %@", searchText)
         
         do {
-            print(self.fetchedResultsController.fetchRequest.predicate)
+            
             try fetchedResultsController.performFetch()
             print("trying fetch")
             
