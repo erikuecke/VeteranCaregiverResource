@@ -150,6 +150,7 @@
                     </tableView>
                     <connections>
                         <outlet property="searchDisplayController" destination="f0q-4w-eVb" id="v4K-54-6Cn"/>
+                        <outlet property="tableView" destination="Ud6-KP-7ms" id="Gkw-t3-c5A"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D13-9l-HqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
