@@ -46,7 +46,7 @@ class ResourceCell: UITableViewCell {
     
     // Configure text for Cell
     func configure(for resource: Resource) {
-        subjectsArray = resource.subjects!
+        subjectsArray = resource.subjectsArray!
         if resource.title.isEmpty {
             titleLabel.text = "(No Description)"
         } else {

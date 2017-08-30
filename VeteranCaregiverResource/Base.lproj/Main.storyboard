@@ -53,6 +53,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="nWc-5A-0vp" kind="show" identifier="FilterSegue" id="mAD-1n-eLL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -195,7 +198,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8l-uV-rPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1918" y="401"/>
+            <point key="canvasLocation" x="1873" y="400"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="FmR-f5-vXv">
@@ -224,7 +227,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ux0-sQ-vTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="401"/>
+            <point key="canvasLocation" x="2700" y="400"/>
         </scene>
         <!--Saved-->
         <scene sceneID="YzL-Hw-Oxb">
@@ -241,7 +244,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YjD-di-oxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="401"/>
+            <point key="canvasLocation" x="924" y="399"/>
         </scene>
         <!--Filter-->
         <scene sceneID="fZB-F4-1WX">
@@ -261,4 +264,7 @@
             <point key="canvasLocation" x="926" y="-392"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mAD-1n-eLL"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -48,6 +48,22 @@ class FilterViewController: UITableViewController {
             let controller = segue.destination as! SearchListViewController
             controller.title = "Search All"
             controller.managedObjectContext = managedObjectContext
+        } else if segue.identifier == "FilterSegue" {
+            let controller = segue.destination as! SearchListViewController
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                
+                let subjectFilter = tableView.cellForRow(at: indexPath)?.textLabel?.text
+                print(subjectFilter!)
+                controller.title = subjectFilter
+                if subjectFilter == "All" {
+                    controller.subjectFilter = nil
+                } else{
+                   controller.subjectFilter = subjectFilter!
+                }
+                
+            }
+            controller.managedObjectContext = managedObjectContext
         }
     }
     

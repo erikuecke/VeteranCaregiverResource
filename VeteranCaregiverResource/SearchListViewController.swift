@@ -22,10 +22,8 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
     var subjectFilter: String?
     
     // Predicate filter
-    var testPredicate: NSPredicate?
+    var testString = "Health"
 
-    
-    
     //NSFetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController<Resource> = {
         
@@ -36,10 +34,8 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         
         let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
         
-        
         fetchRequest.sortDescriptors = [sortDescriptor1]
-        // NSPredicate default
-//        fetchRequest.predicate = NSPredicate(format: "subjects containts[c] %@", "Health")
+        
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedObjectContext,
@@ -58,8 +54,8 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        performFetch()
+        performFetch(subjectFilter)
+        
         
         // 3 Set up SearchController parameters
         // Setup the Search Controller
@@ -69,25 +65,28 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         tableView.tableHeaderView = self.searchController.searchBar
         self.searchController.searchBar.delegate = self
         
-        
     }
     
     
     
-    func performFetch() {
+    func performFetch(_ filterText: String? = nil) {
         
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: "Resources")
-        if !isFiltering(), subjectFilter != nil {
-            fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "subjects containts[c] %@", subjectFilter!)
+
+        if !isFiltering(), filterText != nil {
+            fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "subjectsString contains[c] %@", filterText!)
         }
+        
         do {
             try self.fetchedResultsController.performFetch()
         } catch {
             fatalCoreDataError(error)
         }
+        
+        
     }
    
-
+    // Cancel button to clear searchbar which resests tableview.
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
        searchBar.resignFirstResponder()
     }
@@ -103,6 +102,7 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! ResourceCell
         
         let resource = fetchedResultsController.object(at: indexPath)
+
         cell.configure(for: resource)
         
         
@@ -122,12 +122,27 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
     
     func filterContentForSearchText(_ searchText: String) {
         
-        if !searchBarIsEmpty() {
-            NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: "Resources")
-            fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "title contains[c] %@", searchText)
+        let generalCompoundPred = NSCompoundPredicate(orPredicateWithSubpredicates: [NSPredicate(format: "subjectsString contains[c] %@", searchText),NSPredicate(format: "title contains[c] %@", searchText), NSPredicate(format: "content contains[c] %@", searchText)  ])
+        
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: "Resources")
+        
+        if !searchBarIsEmpty(), subjectFilter != nil {
             
+            let subjectsFilterPredicate = NSPredicate(format: "subjectsString contains[c] %@", subjectFilter!)
+            
+            fetchedResultsController.fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [subjectsFilterPredicate, generalCompoundPred])
+
+        } else if !searchBarIsEmpty(), subjectFilter == nil {
+
+            fetchedResultsController.fetchRequest.predicate = generalCompoundPred
         } else {
-            fetchedResultsController.fetchRequest.predicate = nil
+
+            if subjectFilter != nil {
+                fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "subjectsString contains[c] %@", subjectFilter!)
+            } else {
+                fetchedResultsController.fetchRequest.predicate = nil
+            }
+            
         }
         
         

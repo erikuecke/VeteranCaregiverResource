@@ -110,13 +110,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             
         } else {
-            print("it didnt work")
+            print("Core Data Full")
         }
     }
     
     // Save in core data method
     private func saveInCoreDataWith(array: [[String: AnyObject]]) {
-        _ = array.map{self.createPhotoEntityFrom(dictionary: $0)}
+        _ = array.map{self.createResourceEntityFrom(dictionary: $0)}
         
         do {
             try managedObjectContext.save()
@@ -126,12 +126,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Create Intity from Array Dict
-    private func createPhotoEntityFrom(dictionary: [String: AnyObject]) -> NSManagedObject? {
+    private func createResourceEntityFrom(dictionary: [String: AnyObject]) -> NSManagedObject? {
         
         if let resourceEntity = NSEntityDescription.insertNewObject(forEntityName: "Resource", into: managedObjectContext) as? Resource {
             resourceEntity.title = dictionary["title"] as! String
             resourceEntity.content = dictionary["content"] as? String
-            resourceEntity.subjects = dictionary["subjects"] as? [String]
+            // Subjects array into string to sort
+            let subjectsString = { () -> String in
+                var stringFromArray = ""
+                for subject in dictionary["subjects"] as! [String] {
+                    stringFromArray = stringFromArray + "\(subject) "
+                }
+                return stringFromArray
+            }
+            resourceEntity.subjectsString = subjectsString()
+            resourceEntity.subjectsArray = dictionary["subjects"] as? [String]
             resourceEntity.linkName = dictionary["linkName"] as? String
             resourceEntity.phoneNumber = dictionary["phoneNumber"] as? String
             resourceEntity.geographicServiceLocations = dictionary["geographicServiceLocation"] as? [[String: AnyObject]]
