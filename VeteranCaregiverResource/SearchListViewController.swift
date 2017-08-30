@@ -109,6 +109,20 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "DetailSegue" {
+            let controller = segue.destination as! ResourceDetailViewController
+            controller.managedObjectContext = managedObjectContext
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                
+                let resource = fetchedResultsController.object(at: indexPath)
+                controller.resourceToShow = resource
+            }
+        }
+    }
 
     
  

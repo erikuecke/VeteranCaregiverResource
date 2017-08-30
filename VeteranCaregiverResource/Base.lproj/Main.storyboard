@@ -143,6 +143,7 @@
                                     <outlet property="collectionView" destination="bDZ-N5-mvO" id="Ww7-UT-cJs"/>
                                     <outlet property="photoImageView" destination="FIM-Fy-Eiz" id="Mvm-M3-keS"/>
                                     <outlet property="titleLabel" destination="E13-5M-ba6" id="DAw-0I-tqm"/>
+                                    <segue destination="GcT-RB-wrW" kind="show" identifier="DetailSegue" id="XKU-IF-bpL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -167,6 +168,35 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2700" y="-395.07042253521126"/>
+        </scene>
+        <!--Resource Detail View Controller-->
+        <scene sceneID="vY8-Oj-0C3">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="GcT-RB-wrW" customClass="ResourceDetailViewController" customModule="VeteranCaregiverResource" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FIG-CP-ra6"/>
+                        <viewControllerLayoutGuide type="bottom" id="w2C-IN-Fj7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sNE-CV-EMA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fi-LY-0HG">
+                                <rect key="frame" x="16" y="72" width="288" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="0Fi-LY-0HG" id="J0m-gC-ZXV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r2r-pp-e9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3586.875" y="-396.12676056338029"/>
         </scene>
         <!--Saved-->
         <scene sceneID="Rjl-ij-5wJ">
@@ -265,6 +295,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mAD-1n-eLL"/>
+        <segue reference="OC5-T9-XHj"/>
     </inferredMetricsTieBreakers>
 </document>

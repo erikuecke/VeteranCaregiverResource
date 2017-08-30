@@ -14,6 +14,7 @@
 		9E03FA4D1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E03FA4B1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld */; };
 		9E0A8AA91F57183600CC8D9C /* Resource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0A8AA71F57183600CC8D9C /* Resource+CoreDataClass.swift */; };
 		9E0A8AAA1F57183600CC8D9C /* Resource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0A8AA81F57183600CC8D9C /* Resource+CoreDataProperties.swift */; };
+		9E0A8AAC1F57541600CC8D9C /* ResourceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0A8AAB1F57541600CC8D9C /* ResourceDetailViewController.swift */; };
 		9E0CA29C1F50A41900EF6F1B /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0CA29B1F50A41900EF6F1B /* SearchListViewController.swift */; };
 		9E61613D1F50EA0200AAD264 /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E61613C1F50EA0200AAD264 /* IconCollectionViewCell.swift */; };
 		9EE8D8561F4C953100477D6E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8D8551F4C953100477D6E /* FilterViewController.swift */; };
@@ -32,6 +33,7 @@
 		9E03FA4C1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VeteranCaregiverResource.xcdatamodel; sourceTree = "<group>"; };
 		9E0A8AA71F57183600CC8D9C /* Resource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9E0A8AA81F57183600CC8D9C /* Resource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9E0A8AAB1F57541600CC8D9C /* ResourceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceDetailViewController.swift; sourceTree = "<group>"; };
 		9E0CA29B1F50A41900EF6F1B /* SearchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		9E61613C1F50EA0200AAD264 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EE8D8551F4C953100477D6E /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				9E0CA29B1F50A41900EF6F1B /* SearchListViewController.swift */,
 				9EE8D8581F4CA3E700477D6E /* ResourceCell.swift */,
 				9E61613C1F50EA0200AAD264 /* IconCollectionViewCell.swift */,
+				9E0A8AAB1F57541600CC8D9C /* ResourceDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				9EE8D8591F4CA3E800477D6E /* ResourceCell.swift in Sources */,
 				9E03FA381F4B71A100A3E8AB /* AppDelegate.swift in Sources */,
 				9EE8D85D1F4CDEE900477D6E /* Functions.swift in Sources */,
+				9E0A8AAC1F57541600CC8D9C /* ResourceDetailViewController.swift in Sources */,
 				9E03FA4D1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld in Sources */,
 				9E0A8AAA1F57183600CC8D9C /* Resource+CoreDataProperties.swift in Sources */,
 				9EE8D85B1F4CBD3500477D6E /* VAClient.swift in Sources */,
