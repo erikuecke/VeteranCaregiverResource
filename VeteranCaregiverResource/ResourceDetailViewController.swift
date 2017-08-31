@@ -11,29 +11,34 @@ import UIKit
 import CoreData
 import WebKit
 
-class ResourceDetailViewController: UIViewController {
-    
-    
+class ResourceDetailViewController: UITableViewController {
     
     // ManagedObjectContext
     var managedObjectContext: NSManagedObjectContext!
     
+    // Label/textview outlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var websiteLabel: UILabel!
+    @IBOutlet weak var shareLabel: UILabel!
+    @IBOutlet weak var saveLabel: UILabel!
+    
     var resourceToShow: Resource!
+
+    @IBAction func done() {
+        dismiss(animated: true, completion: nil)
+    }
     
-    var linkName: String = ""
-    
-    @IBOutlet weak var webView: UIWebView!
-    
+
+
     
     // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = false
-        linkName = resourceToShow.linkName!
         
-        if let url = URL(string: linkName) {
-            let request = URLRequest(url: url)
-            webView.loadRequest(request)
-        }
+        titleLabel.text = resourceToShow.title
+        contentLabel.text = resourceToShow.content
+        
+        
     }
 }
