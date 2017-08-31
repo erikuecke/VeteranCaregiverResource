@@ -122,6 +122,7 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
                 controller.resourceToShow = resource
             }
         }
+        
     }
 
     

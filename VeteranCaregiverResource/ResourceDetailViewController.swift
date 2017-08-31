@@ -58,17 +58,27 @@ class ResourceDetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (1, 0):
-            // openWeblink()
+            // openWeblink
             tableView.deselectRow(at: indexPath, animated: true)
-            print("open website")
+            if let url = URL(string: resourceToShow.linkName!) {
+                UIApplication.shared.open(url, options: [:])
+            }
+
         case (1, 1):
-        // shareResource()
+        // shareResource
             tableView.deselectRow(at: indexPath, animated: true)
+            // acitivityviewcontroller
             print("share Resource")
+            
         case (1, 2):
-        // saveResource()
+        // saveResource
             tableView.deselectRow(at: indexPath, animated: true)
             print("saveResrouce")
+            if resourceToShow.saved == true {
+                resourceToShow.saved = false
+                
+                
+            }
         default:
             return
         }
