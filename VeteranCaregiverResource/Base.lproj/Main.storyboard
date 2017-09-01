@@ -261,7 +261,7 @@
                                                     <rect key="frame" x="15" y="3" width="52" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHi-xB-6g4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Website" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHi-xB-6g4">
                                                     <rect key="frame" x="75" y="8" width="237" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -282,7 +282,7 @@
                                                     <rect key="frame" x="16" y="3" width="52" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0su-xA-Uz5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0su-xA-Uz5">
                                                     <rect key="frame" x="75" y="7" width="237" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -299,7 +299,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pD2-k2-K9o">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Save" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pD2-k2-K9o">
                                                     <rect key="frame" x="75" y="8" width="237" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -330,8 +330,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contentLabel" destination="PJd-mH-IXJ" id="pvm-wh-jco"/>
+                        <outlet property="saveImage" destination="8O9-TW-hXk" id="ev4-UD-0PQ"/>
+                        <outlet property="saveLabel" destination="pD2-k2-K9o" id="GIM-Cu-mVF"/>
+                        <outlet property="shareImage" destination="htS-FC-pJc" id="HaL-0N-gPk"/>
+                        <outlet property="shareLabel" destination="0su-xA-Uz5" id="xXQ-bM-Es1"/>
                         <outlet property="titleCollectionView" destination="hJS-1C-qpT" id="1Pw-Jx-rhD"/>
-                        <outlet property="titleLabel" destination="5BE-hs-T3i" id="luP-De-aI4"/>
+                        <outlet property="titleLabel" destination="5BE-hs-T3i" id="AqR-Il-54O"/>
+                        <outlet property="websiteImage" destination="HNL-wa-cea" id="00x-vC-egI"/>
+                        <outlet property="websiteLabel" destination="VHi-xB-6g4" id="OFK-xn-gb0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quh-og-k4h" userLabel="First Responder" sceneMemberID="firstResponder"/>

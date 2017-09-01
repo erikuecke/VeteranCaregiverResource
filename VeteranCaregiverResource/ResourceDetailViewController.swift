@@ -22,9 +22,18 @@ class ResourceDetailViewController: UITableViewController {
     @IBOutlet weak var titleCollectionView: UICollectionView!
     
     @IBOutlet weak var contentLabel: UILabel!
+    
+    // Website
     @IBOutlet weak var websiteLabel: UILabel!
+    @IBOutlet weak var websiteImage: UIImageView!
+    
+    // Share
     @IBOutlet weak var shareLabel: UILabel!
+    @IBOutlet weak var shareImage: UIImageView!
+    
+    // Save
     @IBOutlet weak var saveLabel: UILabel!
+    @IBOutlet weak var saveImage: UIImageView!
     
     
     var resourceToShow: Resource!
@@ -34,10 +43,7 @@ class ResourceDetailViewController: UITableViewController {
     @IBAction func done() {
         dismiss(animated: true, completion: nil)
     }
-    
 
-
-    
     // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +55,18 @@ class ResourceDetailViewController: UITableViewController {
         
         titleLabel.text = resourceToShow.title
         contentLabel.text = resourceToShow.content
+        websiteImage.image = UIImage(named: "Web")
+        shareImage.image = UIImage(named: "Share")
+        
+        if resourceToShow.saved == false {
+            saveImage.image = UIImage(named: "unSaved")
+            saveLabel.text = "Save"
+            saveLabel.textColor = UIColor.black
+        } else {
+            saveImage.image = UIImage(named: "saved")
+            saveLabel.text = "Saved"
+            saveLabel.textColor = UIColor.green
+        }
         theSubjectsArray = resourceToShow.subjectsArray!
         shareMessage = "I found this resource on the Veteran Cargiver Resource iPhone App and thought it might be useful for you. \n\n\(resourceToShow.title)\n\n\(resourceToShow.linkName!)\n\n \(resourceToShow.content!)"
        
@@ -66,22 +84,13 @@ class ResourceDetailViewController: UITableViewController {
 
         case (1, 1):
         // shareResource
-            
-            
             tableView.deselectRow(at: indexPath, animated: true)
             share(shareMessage)
-            // acitivityviewcontroller
-            print("share Resource")
-            
+
         case (1, 2):
         // saveResource
             tableView.deselectRow(at: indexPath, animated: true)
-            print("saveResrouce")
-            if resourceToShow.saved == true {
-                resourceToShow.saved = false
-                
-                
-            }
+            saveResource()
         default:
             return
         }
@@ -94,8 +103,30 @@ class ResourceDetailViewController: UITableViewController {
         present(activityViewController, animated: true, completion: nil)
     }
     
-
-    
+    func saveResource() {
+        if resourceToShow.saved == false {
+            resourceToShow.saved = true
+            saveImage.image = UIImage(named: "saved")
+            saveLabel.text = "Saved"
+            saveLabel.textColor = UIColor.green
+        } else {
+            resourceToShow.saved = false
+            saveImage.image = UIImage(named: "unSaved")
+            saveLabel.text = "Save"
+            saveLabel.textColor = UIColor.black
+        }
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            fatalCoreDataError(error)
+        }
+    }
+   
+    func fatalCoreDataError(_ error: Error) {
+        print("*** Fatal error: \(error)")
+        NotificationCenter.default.post( name: MyManagedObjectContextSaveDidFailNotification, object: nil)
+    }
 }
 
 // For Title Cell Colleciton view

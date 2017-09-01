@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         checkForData()
-        print(applicationDocumentsDirectory)
+        listenForFatalCoreDataNotifications()
         return true
     }
 
@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             fatalCoreDataError(error)
         }
-        print(resources.count)
+        
         
         
         if resources.count == 0 {
@@ -150,6 +150,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return nil
     }
+    
+    func listenForFatalCoreDataNotifications() {
+        NotificationCenter.default.addObserver( forName: MyManagedObjectContextSaveDidFailNotification, object: nil, queue: OperationQueue.main, using: { notification in
+            
+            let alert = UIAlertController( title: "Internal Error", message: "There was a fatal error in the app and it cannot continue.\n\n" + "Press OK to terminate the app. Sorry for the inconvenience.", preferredStyle: .alert)
+            
+             let action = UIAlertAction(title: "OK", style: .default) { _ in
+                
+                let exception = NSException( name: NSExceptionName.internalInconsistencyException, reason: "Fatal Core Data error", userInfo: nil)
+                exception.raise()
+            }
+            
+            alert.addAction(action)
+            
+            self.viewControllerForShowingAlert().present(alert, animated: true, completion: nil)
+        })
+    }
+    
+    func viewControllerForShowingAlert() -> UIViewController {
+        let rootViewController = self.window!.rootViewController!
+        if let presentedViewController = rootViewController.presentedViewController {
+            return presentedViewController
+        } else {
+            return rootViewController
+        }
+    }
+        
+        
     
     
     
