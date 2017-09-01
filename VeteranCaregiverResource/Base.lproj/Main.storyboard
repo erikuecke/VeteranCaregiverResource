@@ -77,7 +77,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soy-Fs-Xb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1874" y="-392"/>
+            <point key="canvasLocation" x="1794" y="-444"/>
         </scene>
         <!--Search List View Controller-->
         <scene sceneID="DkB-ok-QyR">
@@ -167,7 +167,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2700" y="-395.07042253521126"/>
+            <point key="canvasLocation" x="2668" y="-443"/>
         </scene>
         <!--Resource Details-->
         <scene sceneID="PP7-Jp-dfV">
@@ -181,7 +181,7 @@
                         <sections>
                             <tableViewSection id="X8M-jp-6qC">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResourceTitleCell" rowHeight="100" id="cWb-53-PJf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="cWb-53-PJf">
                                         <rect key="frame" x="0.0" y="35" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cWb-53-PJf" id="m3A-pJ-K01">
@@ -342,91 +342,30 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quh-og-k4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3740.625" y="-395.07042253521126"/>
-        </scene>
-        <!--Saved-->
-        <scene sceneID="Rjl-ij-5wJ">
-            <objects>
-                <tableViewController id="ozd-XR-bGk" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="651-s0-7PZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SavedCell" id="Dko-a0-No2">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dko-a0-No2" id="5cZ-Tv-cVH">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="KiJ-V2-GkC" kind="show" identifier="favoriteResource" id="Urm-1u-dih"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ozd-XR-bGk" id="920-TT-a2F"/>
-                            <outlet property="delegate" destination="ozd-XR-bGk" id="qJ4-fv-6ti"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Saved" id="F61-9p-dY8"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J8l-uV-rPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1873" y="400"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="FmR-f5-vXv">
-            <objects>
-                <tableViewController id="KiJ-V2-GkC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2zA-4n-iNW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ett-2L-SH7">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ett-2L-SH7" id="IMP-lu-iRA">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="KiJ-V2-GkC" id="s0D-5V-Jvm"/>
-                            <outlet property="delegate" destination="KiJ-V2-GkC" id="yiH-Tp-Z3M"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="dA0-c4-sI0"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ux0-sQ-vTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2700" y="400"/>
+            <point key="canvasLocation" x="4116" y="-42"/>
         </scene>
         <!--Saved-->
         <scene sceneID="YzL-Hw-Oxb">
             <objects>
                 <navigationController id="W5r-KY-YfP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved" id="qCZ-Fc-fLb"/>
+                    <tabBarItem key="tabBarItem" title="Saved" image="tabBarSaved" id="qCZ-Fc-fLb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="odA-qL-p8d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ozd-XR-bGk" kind="relationship" relationship="rootViewController" id="zFs-Vl-1bs"/>
+                        <segue destination="snu-Nd-0Fn" kind="relationship" relationship="rootViewController" id="bnY-5B-glK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YjD-di-oxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="924" y="399"/>
         </scene>
-        <!--Filter-->
+        <!--Search-->
         <scene sceneID="fZB-F4-1WX">
             <objects>
                 <navigationController id="3pB-Jj-WP8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Filter" id="zhi-cu-zZg"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="tabBarSearch" id="zhi-cu-zZg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gNz-6j-CCs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -437,10 +376,106 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rR4-9S-eu2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="-392"/>
+            <point key="canvasLocation" x="923" y="-444"/>
+        </scene>
+        <!--Saved Resources-->
+        <scene sceneID="y9C-Xn-qxj">
+            <objects>
+                <tableViewController id="snu-Nd-0Fn" customClass="SavedListViewController" customModule="VeteranCaregiverResource" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="l6H-Ug-KaK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SavedCell" rowHeight="75" id="YFc-J7-b1W" customClass="ResourceCell" customModule="VeteranCaregiverResource" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YFc-J7-b1W" id="CE2-kS-hfY">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4W-8b-oBp">
+                                            <rect key="frame" x="82" y="0.0" width="230" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIh-2d-yxY">
+                                            <rect key="frame" x="15" y="6" width="52" height="52"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qrm-z0-7C7">
+                                            <rect key="frame" x="82" y="51" width="230" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="8" id="XAn-LW-gMa">
+                                                <size key="itemSize" width="15" height="15"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="bmT-aF-yAp" customClass="IconCollectionViewCell" customModule="VeteranCaregiverResource" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hVM-pw-sr5">
+                                                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </view>
+                                                    <size key="customSize" width="15" height="15"/>
+                                                    <connections>
+                                                        <outlet property="collectionImageView" destination="hVM-pw-sr5" id="6wI-OD-yYO"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="collectionView" destination="qrm-z0-7C7" id="uzK-oT-2Do"/>
+                                    <outlet property="photoImageView" destination="DIh-2d-yxY" id="xGb-6X-gCW"/>
+                                    <outlet property="titleLabel" destination="I4W-8b-oBp" id="Cdr-ul-3u3"/>
+                                    <segue destination="O5X-HP-IKe" kind="show" identifier="SavedDetailSegue" id="Oay-k2-TRE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="snu-Nd-0Fn" id="pwm-is-C7q"/>
+                            <outlet property="delegate" destination="snu-Nd-0Fn" id="X2L-VP-Kl1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Saved Resources" id="tMb-dc-cRR"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="f0q-4w-eVb" id="Fwf-wp-RWv"/>
+                        <outlet property="tableView" destination="l6H-Ug-KaK" id="h15-ua-KfN"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Xb-im-zwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Xr8-F1-8uh">
+                    <connections>
+                        <outlet property="delegate" destination="snu-Nd-0Fn" id="LUL-5I-iKo"/>
+                        <outlet property="searchContentsController" destination="snu-Nd-0Fn" id="pKz-mM-dHB"/>
+                        <outlet property="searchResultsDataSource" destination="snu-Nd-0Fn" id="Lpo-wu-BkR"/>
+                        <outlet property="searchResultsDelegate" destination="snu-Nd-0Fn" id="TGV-82-xl6"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1793" y="398"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabBarSaved" width="25" height="25"/>
+        <image name="tabBarSearch" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Oay-k2-TRE"/>
         <segue reference="OC5-T9-XHj"/>
     </inferredMetricsTieBreakers>
 </document>

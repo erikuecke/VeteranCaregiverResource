@@ -1,16 +1,17 @@
 //
-//  SearchListViewController.swift
+//  SavedListViewController.swift
 //  VeteranCaregiverResource
 //
-//  Created by Erik Uecke on 8/25/17.
+//  Created by Erik Uecke on 9/1/17.
 //  Copyright © 2017 Erik Uecke. All rights reserved.
 //
 
 import Foundation
+import Foundation
 import UIKit
 import CoreData
 
-class SearchListViewController: UITableViewController, UISearchBarDelegate {
+class SavedListViewController: UITableViewController, UISearchBarDelegate {
     
     // 1 Create search Controller
     let searchController = UISearchController(searchResultsController: nil)
@@ -18,12 +19,11 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
     // ManagedObjectContext
     var managedObjectContext: NSManagedObjectContext!
     
-    // Subject Filter
-    var subjectFilter: String?
+//    // Subject Filter
+//    var subjectFilter: String?
     
-    // Predicate filter
-    var testString = "Health"
-
+    let savedPredicate = NSPredicate(format: "saved == %@", NSNumber(booleanLiteral: true))
+    
     //NSFetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController<Resource> = {
         
@@ -54,7 +54,7 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        performFetch(subjectFilter)
+        performFetch()
         
         
         // 3 Set up SearchController parameters
@@ -67,14 +67,13 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         
     }
     
-    
-    
-    func performFetch(_ filterText: String? = nil) {
+    // Perform fetch
+    func performFetch() {
         
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: "Resources")
-
-        if !isFiltering(), filterText != nil {
-            fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "subjectsString contains[c] %@", filterText!)
+        
+        if !isFiltering() {
+            fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "saved == %@", NSNumber(booleanLiteral: true))
         }
         
         do {
@@ -85,10 +84,10 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         
         
     }
-   
+    
     // Cancel button to clear searchbar which resests tableview.
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-       searchBar.resignFirstResponder()
+        searchBar.resignFirstResponder()
     }
     
     // MARK: - UITableViewDataSource
@@ -99,10 +98,10 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! ResourceCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SavedCell", for: indexPath) as! ResourceCell
         
         let resource = fetchedResultsController.object(at: indexPath)
-
+        
         cell.configure(for: resource)
         
         
@@ -112,7 +111,7 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "DetailSegue" {
+        if segue.identifier == "SavedDetailSegue" {
             let controller = segue.destination as! ResourceDetailViewController
             controller.managedObjectContext = managedObjectContext
             
@@ -120,14 +119,11 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
                 
                 let resource = fetchedResultsController.object(at: indexPath)
                 controller.resourceToShow = resource
-                self.tableView.deselectRow(at: indexPath, animated: true)
             }
         }
         
     }
-
     
- 
     // 5
     // MARK: - Private instance methods
     
@@ -142,22 +138,17 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: "Resources")
         
-        if !searchBarIsEmpty(), subjectFilter != nil {
+        if !searchBarIsEmpty() {
             
-            let subjectsFilterPredicate = NSPredicate(format: "subjectsString contains[c] %@", subjectFilter!)
             
-            fetchedResultsController.fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [subjectsFilterPredicate, generalCompoundPred])
-
-        } else if !searchBarIsEmpty(), subjectFilter == nil {
-
-            fetchedResultsController.fetchRequest.predicate = generalCompoundPred
+            fetchedResultsController.fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [savedPredicate, generalCompoundPred])
+            
+       
         } else {
-
-            if subjectFilter != nil {
-                fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "subjectsString contains[c] %@", subjectFilter!)
-            } else {
-                fetchedResultsController.fetchRequest.predicate = nil
-            }
+            
+            
+                fetchedResultsController.fetchRequest.predicate = savedPredicate
+            
             
         }
         
@@ -176,11 +167,10 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         return searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
     }
     
-    
 }
 
 // 2
-extension SearchListViewController: UISearchResultsUpdating {
+extension SavedListViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
         
@@ -188,7 +178,7 @@ extension SearchListViewController: UISearchResultsUpdating {
     }
 }
 
-extension SearchListViewController: UISearchControllerDelegate {
+extension SavedListViewController: UISearchControllerDelegate {
     
     func didDismissSearchController(_ searchController: UISearchController) {
         performFetch()
@@ -197,7 +187,7 @@ extension SearchListViewController: UISearchControllerDelegate {
 }
 
 // FilterViewController: NSFetchedResultsControllerDelegate
-extension SearchListViewController: NSFetchedResultsControllerDelegate {
+extension SavedListViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         print("*** controllerWillChangeContent")
@@ -249,5 +239,3 @@ extension SearchListViewController: NSFetchedResultsControllerDelegate {
         tableView.endUpdates()
     }
 }
-
-

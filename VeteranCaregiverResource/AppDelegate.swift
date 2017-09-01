@@ -24,9 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Basic table text viewcontroller
         if let tabBarViewControllers = tabBarController.viewControllers {
+            
             let navigationController = tabBarViewControllers[0] as! UINavigationController
             let filterViewController = navigationController.viewControllers[0] as! FilterViewController
             filterViewController.managedObjectContext = managedObjectContext
+            
+            let savedNavigationController = tabBarViewControllers[1] as! UINavigationController
+            let savedViewController = savedNavigationController.viewControllers[0] as! SavedListViewController
+            savedViewController.managedObjectContext = managedObjectContext
             
         }
         
