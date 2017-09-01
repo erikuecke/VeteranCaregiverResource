@@ -66,6 +66,8 @@ class ResourceDetailViewController: UITableViewController {
 
         case (1, 1):
         // shareResource
+            
+            
             tableView.deselectRow(at: indexPath, animated: true)
             // acitivityviewcontroller
             print("share Resource")
@@ -83,6 +85,14 @@ class ResourceDetailViewController: UITableViewController {
             return
         }
     }
+    
+    // Sharing Method UIActivityViewController
+    func sfhare() {
+        
+        let activityViewController = UIActivityViewController(activityItems: [resourceToShow.title], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
 
     
 }
