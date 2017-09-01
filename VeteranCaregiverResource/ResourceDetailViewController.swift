@@ -30,7 +30,7 @@ class ResourceDetailViewController: UITableViewController {
     var resourceToShow: Resource!
     
     var theSubjectsArray = [String]()
-
+    var shareMessage = ""
     @IBAction func done() {
         dismiss(animated: true, completion: nil)
     }
@@ -50,7 +50,7 @@ class ResourceDetailViewController: UITableViewController {
         titleLabel.text = resourceToShow.title
         contentLabel.text = resourceToShow.content
         theSubjectsArray = resourceToShow.subjectsArray!
-        print(theSubjectsArray)
+        shareMessage = "I found this resource on the Veteran Cargiver Resource iPhone App and thought it might be useful for you. \n\n\(resourceToShow.title)\n\n\(resourceToShow.linkName!)\n\n \(resourceToShow.content!)"
        
     }
     
@@ -69,6 +69,7 @@ class ResourceDetailViewController: UITableViewController {
             
             
             tableView.deselectRow(at: indexPath, animated: true)
+            share(shareMessage)
             // acitivityviewcontroller
             print("share Resource")
             
@@ -87,9 +88,9 @@ class ResourceDetailViewController: UITableViewController {
     }
     
     // Sharing Method UIActivityViewController
-    func sfhare() {
+    func share(_ stringMessage: String) {
         
-        let activityViewController = UIActivityViewController(activityItems: [resourceToShow.title], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [stringMessage], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
     }
     
