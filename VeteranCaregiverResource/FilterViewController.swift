@@ -12,8 +12,8 @@ import CoreData
 
 class FilterViewController: UITableViewController {
     
-        var managedObjectContext: NSManagedObjectContext!
-    
+    var managedObjectContext: NSManagedObjectContext!
+    var rowHeight: CGFloat!
     
     let icons = [
         "All",
@@ -25,9 +25,26 @@ class FilterViewController: UITableViewController {
         "Family & Caregiver Support",
         "Transportation & Travel",
         "Homeless Assistance",
-        "Other Service & Resources"]
+        "Other Services & Resources"]
     
+    
+    
+    // View Did load
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let barHeightInt = Int((self.navigationController?.navigationBar.frame.size.height)!) + Int((self.tabBarController?.tabBar.frame.size.height)!) + Int(UIApplication.shared.statusBarFrame.size.height)
+        
+        let tableHeight = Int(tableView.frame.size.height) - barHeightInt
+        
+        tableView.rowHeight = CGFloat(tableHeight / icons.count)
+        
+        
+        
+        
+    }
     // MARK: - UITableViewDataSource
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return icons.count
     }

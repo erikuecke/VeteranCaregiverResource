@@ -32,20 +32,20 @@
         <scene sceneID="x4C-7P-uVG">
             <objects>
                 <tableViewController id="oXX-z2-jRb" customClass="FilterViewController" customModule="VeteranCaregiverResource" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" id="YwG-5g-2xC">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" id="YwG-5g-2xC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" textLabel="4ql-q5-oVc" style="IBUITableViewCellStyleDefault" id="sE0-1q-Xes">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" textLabel="4ql-q5-oVc" style="IBUITableViewCellStyleDefault" id="sE0-1q-Xes">
                                 <rect key="frame" x="0.0" y="28" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sE0-1q-Xes" id="f4H-Ud-TQd">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4ql-q5-oVc">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="44.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4ql-q5-oVc">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -325,9 +325,7 @@
                             <outlet property="delegate" destination="O5X-HP-IKe" id="nPh-KH-gcE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Resource Details" id="nre-7Z-IW1">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="J0a-Pl-o91"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Resource Details" id="nre-7Z-IW1"/>
                     <connections>
                         <outlet property="contentLabel" destination="PJd-mH-IXJ" id="pvm-wh-jco"/>
                         <outlet property="saveImage" destination="8O9-TW-hXk" id="ev4-UD-0PQ"/>
