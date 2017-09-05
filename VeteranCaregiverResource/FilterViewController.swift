@@ -39,6 +39,9 @@ class FilterViewController: UITableViewController {
         
         tableView.rowHeight = CGFloat(tableHeight / icons.count)
         
+        tableView.backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
+        tableView.separatorColor = UIColor(red: 79/255.0, green: 102/255.0, blue: 140/255.0, alpha: 1.0)
+        tableView.indicatorStyle = .default
         
         
         
@@ -50,7 +53,7 @@ class FilterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath) as! FilterCell
         
         let iconName = icons[indexPath.row]
         cell.textLabel!.text = iconName
@@ -85,5 +88,6 @@ class FilterViewController: UITableViewController {
     }
     
 }
+
 
 

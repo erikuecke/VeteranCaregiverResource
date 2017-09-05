@@ -25,12 +25,13 @@ class ResourceCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
+        titleLabel?.textColor = UIColor.white
         // Initialization code
         collectionView.isScrollEnabled = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        collectionView.backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
         
         
     }

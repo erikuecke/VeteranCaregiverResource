@@ -47,21 +47,33 @@ class ResourceDetailViewController: UITableViewController {
     // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // table color
+        tableView.backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
+        tableView.separatorColor = UIColor(red: 79/255.0, green: 102/255.0, blue: 140/255.0, alpha: 1.0)
+        tableView.indicatorStyle = .default
+        
         // Initialization code
+        titleCollectionView.backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
         titleCollectionView.isScrollEnabled = false
         titleCollectionView.delegate = self
         titleCollectionView.dataSource = self
         
         titleLabel.text = resourceToShow.title
+        titleLabel.textColor = UIColor.white
+        
         contentLabel.text = resourceToShow.content
+        
         websiteImage.image = UIImage(named: "Web")
+        websiteLabel.textColor = UIColor.white
+        
         shareImage.image = UIImage(named: "Share")
+        shareLabel.textColor = UIColor.white
         
         if resourceToShow.saved == false {
             saveImage.image = UIImage(named: "unSaved")
             saveLabel.text = "Save"
-            saveLabel.textColor = UIColor.black
+            saveLabel.textColor = UIColor.white
         } else {
             saveImage.image = UIImage(named: "saved")
             saveLabel.text = "Saved"
@@ -70,6 +82,31 @@ class ResourceDetailViewController: UITableViewController {
         theSubjectsArray = resourceToShow.subjectsArray!
         shareMessage = "I found this resource on the Veteran Cargiver Resource iPhone App and thought it might be useful for you. \n\n\(resourceToShow.title)\n\n\(resourceToShow.linkName!)\n\n \(resourceToShow.content!)"
        
+    }
+    
+    // Customize static cells
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
+        cell.textLabel?.textColor = UIColor.white
+//        if let textLabel = cell.textLabel {
+//            textLabel.textColor = UIColor.white
+//            textLabel.highlightedTextColor = textLabel.textColor
+//        }
+//        if indexPath.section == 0 && indexPath.row == 1 {
+//            
+//        }
+////        if let detailLabel = cell.detailTextLabel {
+////            detailLabel.textColor = UIColor(white: 1.0, alpha: 0.4)
+////            detailLabel.highlightedTextColor = detailLabel.textColor
+////        }
+//        
+//        let selectionView = UIView(frame: CGRect.zero)
+//        selectionView.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
+//        cell.selectedBackgroundView = selectionView
+//        
+        
+        
+        
     }
     
     // TABLEVIEW 

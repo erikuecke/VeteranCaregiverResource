@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Custom Bar appearance
+        customizeAppearance()
        
         
         // Managed Object Context for viewcontrollers
@@ -184,6 +187,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     
+    func customizeAppearance() {
+        
+        let backGroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
+
+        UINavigationBar.appearance().barTintColor = backGroundColor
+        UINavigationBar.appearance().titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.white ]
+        UITabBar.appearance().barTintColor = backGroundColor
+        
+        UITabBar.appearance().tintColor = UIColor.white
+    }
     
     
 }
