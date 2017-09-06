@@ -38,8 +38,8 @@
 		9E0CA29B1F50A41900EF6F1B /* SearchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		9E2BD3DE1F5A026F00574248 /* SavedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedListViewController.swift; sourceTree = "<group>"; };
 		9E61613C1F50EA0200AAD264 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
-		9ECC1EBC1F60709B00596589 /* Resource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataClass.swift"; sourceTree = "<group>"; };
-		9ECC1EBD1F60709B00596589 /* Resource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9ECC1EBC1F60709B00596589 /* Resource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Resource+CoreDataClass.swift"; path = "../Resource+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9ECC1EBD1F60709B00596589 /* Resource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Resource+CoreDataProperties.swift"; path = "../Resource+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9EE8D8551F4C953100477D6E /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		9EE8D8581F4CA3E700477D6E /* ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceCell.swift; sourceTree = "<group>"; };
 		9EE8D85A1F4CBD3500477D6E /* VAClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAClient.swift; sourceTree = "<group>"; };
@@ -60,8 +60,6 @@
 		9E03FA2B1F4B71A000A3E8AB = {
 			isa = PBXGroup;
 			children = (
-				9ECC1EBC1F60709B00596589 /* Resource+CoreDataClass.swift */,
-				9ECC1EBD1F60709B00596589 /* Resource+CoreDataProperties.swift */,
 				9E03FA361F4B71A100A3E8AB /* VeteranCaregiverResource */,
 				9E03FA351F4B71A100A3E8AB /* Products */,
 			);
@@ -103,6 +101,8 @@
 		9EE8D8541F4C927500477D6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9ECC1EBC1F60709B00596589 /* Resource+CoreDataClass.swift */,
+				9ECC1EBD1F60709B00596589 /* Resource+CoreDataProperties.swift */,
 				9E03FA4B1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld */,
 				9EE8D85C1F4CDEE900477D6E /* Functions.swift */,
 			);
