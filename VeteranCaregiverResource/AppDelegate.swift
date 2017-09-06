@@ -38,6 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        // Search Bar colors
+        UISearchBar.appearance().barTintColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
+        UISearchBar.appearance().tintColor = .white
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
+        
         checkForData()
         listenForFatalCoreDataNotifications()
         return true

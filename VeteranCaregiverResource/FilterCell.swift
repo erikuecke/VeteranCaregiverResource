@@ -9,13 +9,17 @@
 import UIKit
 
 class FilterCell: UITableViewCell {
+    
+    @IBOutlet weak var filterImage: UIImageView!
+    @IBOutlet weak var filterLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
-        textLabel?.textColor = UIColor.white
-        imageView?.sizeThatFits(CGSize(width: 44, height: 44))
+        filterLabel.textColor = UIColor.white
+        
     
         
        

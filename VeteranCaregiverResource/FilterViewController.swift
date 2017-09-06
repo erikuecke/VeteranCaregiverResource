@@ -38,7 +38,7 @@ class FilterViewController: UITableViewController {
         let tableHeight = Int(tableView.frame.size.height) - barHeightInt
         
         tableView.rowHeight = CGFloat(tableHeight / icons.count)
-        
+       
         tableView.backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
         tableView.separatorColor = UIColor(red: 79/255.0, green: 102/255.0, blue: 140/255.0, alpha: 1.0)
         tableView.indicatorStyle = .default
@@ -56,8 +56,9 @@ class FilterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath) as! FilterCell
         
         let iconName = icons[indexPath.row]
-        cell.textLabel!.text = iconName
-        cell.imageView!.image = UIImage(named: iconName)
+        
+        cell.filterLabel.text = iconName
+        cell.filterImage.image = UIImage(named: iconName)
         
         return cell
     }
@@ -72,13 +73,13 @@ class FilterViewController: UITableViewController {
             let controller = segue.destination as! SearchListViewController
             
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                let cell = tableView.cellForRow(at: indexPath) as! FilterCell
                 
-                let subjectFilter = tableView.cellForRow(at: indexPath)?.textLabel?.text
-                print(subjectFilter!)
+                let subjectFilter = cell.filterLabel.text
                 controller.title = subjectFilter
                 if subjectFilter == "All" {
                     controller.subjectFilter = nil
-                } else{
+                } else {
                    controller.subjectFilter = subjectFilter!
                 }
                 

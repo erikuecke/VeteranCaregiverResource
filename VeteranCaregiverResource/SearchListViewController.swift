@@ -70,6 +70,7 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         tableView.tableHeaderView = self.searchController.searchBar
         self.searchController.searchBar.delegate = self
         
+        
     }
     
     
