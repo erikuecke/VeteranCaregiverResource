@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Filters-->
+        <!--Resources-->
         <scene sceneID="x4C-7P-uVG">
             <objects>
                 <tableViewController id="oXX-z2-jRb" customClass="FilterViewController" customModule="VeteranCaregiverResource" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,7 +71,7 @@
                             <outlet property="delegate" destination="oXX-z2-jRb" id="xYv-hP-mnm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Filters" id="PD9-KF-ZUT">
+                    <navigationItem key="navigationItem" title="Resources" id="PD9-KF-ZUT">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="JTF-Ps-OeA">
                             <connections>
                                 <segue destination="nWc-5A-0vp" kind="show" identifier="SearchSegue" id="OC5-T9-XHj"/>
@@ -176,7 +176,7 @@
             </objects>
             <point key="canvasLocation" x="2668" y="-443"/>
         </scene>
-        <!--Resource Details-->
+        <!--Details-->
         <scene sceneID="PP7-Jp-dfV">
             <objects>
                 <tableViewController id="O5X-HP-IKe" customClass="ResourceDetailViewController" customModule="VeteranCaregiverResource" customModuleProvider="target" sceneMemberID="viewController">
@@ -332,7 +332,7 @@
                             <outlet property="delegate" destination="O5X-HP-IKe" id="nPh-KH-gcE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Resource Details" id="nre-7Z-IW1"/>
+                    <navigationItem key="navigationItem" title="Details" id="nre-7Z-IW1"/>
                     <connections>
                         <outlet property="contentLabel" destination="PJd-mH-IXJ" id="pvm-wh-jco"/>
                         <outlet property="saveImage" destination="8O9-TW-hXk" id="ev4-UD-0PQ"/>
@@ -383,7 +383,7 @@
             </objects>
             <point key="canvasLocation" x="923" y="-444"/>
         </scene>
-        <!--Saved Resources-->
+        <!--Saved-->
         <scene sceneID="y9C-Xn-qxj">
             <objects>
                 <tableViewController id="snu-Nd-0Fn" customClass="SavedListViewController" customModule="VeteranCaregiverResource" customModuleProvider="target" sceneMemberID="viewController">
@@ -456,7 +456,7 @@
                             <outlet property="delegate" destination="snu-Nd-0Fn" id="X2L-VP-Kl1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Saved Resources" id="tMb-dc-cRR"/>
+                    <navigationItem key="navigationItem" title="Saved" id="tMb-dc-cRR"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="f0q-4w-eVb" id="Fwf-wp-RWv"/>
                         <outlet property="tableView" destination="l6H-Ug-KaK" id="h15-ua-KfN"/>
@@ -481,6 +481,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OC5-T9-XHj"/>
-        <segue reference="88S-mU-3kK"/>
+        <segue reference="Oay-k2-TRE"/>
     </inferredMetricsTieBreakers>
 </document>

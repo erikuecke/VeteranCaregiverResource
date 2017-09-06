@@ -13,12 +13,12 @@
 		9E03FA441F4B71A100A3E8AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E03FA421F4B71A100A3E8AB /* LaunchScreen.storyboard */; };
 		9E03FA4D1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E03FA4B1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld */; };
 		9E07795E1F5F45EF009E144C /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E07795D1F5F45EF009E144C /* FilterCell.swift */; };
-		9E0A8AA91F57183600CC8D9C /* Resource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0A8AA71F57183600CC8D9C /* Resource+CoreDataClass.swift */; };
-		9E0A8AAA1F57183600CC8D9C /* Resource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0A8AA81F57183600CC8D9C /* Resource+CoreDataProperties.swift */; };
 		9E0A8AAC1F57541600CC8D9C /* ResourceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0A8AAB1F57541600CC8D9C /* ResourceDetailViewController.swift */; };
 		9E0CA29C1F50A41900EF6F1B /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0CA29B1F50A41900EF6F1B /* SearchListViewController.swift */; };
 		9E2BD3DF1F5A026F00574248 /* SavedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2BD3DE1F5A026F00574248 /* SavedListViewController.swift */; };
 		9E61613D1F50EA0200AAD264 /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E61613C1F50EA0200AAD264 /* IconCollectionViewCell.swift */; };
+		9ECC1EBE1F60709B00596589 /* Resource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC1EBC1F60709B00596589 /* Resource+CoreDataClass.swift */; };
+		9ECC1EBF1F60709B00596589 /* Resource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC1EBD1F60709B00596589 /* Resource+CoreDataProperties.swift */; };
 		9EE8D8561F4C953100477D6E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8D8551F4C953100477D6E /* FilterViewController.swift */; };
 		9EE8D8591F4CA3E800477D6E /* ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8D8581F4CA3E700477D6E /* ResourceCell.swift */; };
 		9EE8D85B1F4CBD3500477D6E /* VAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8D85A1F4CBD3500477D6E /* VAClient.swift */; };
@@ -34,12 +34,12 @@
 		9E03FA451F4B71A100A3E8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E03FA4C1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VeteranCaregiverResource.xcdatamodel; sourceTree = "<group>"; };
 		9E07795D1F5F45EF009E144C /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
-		9E0A8AA71F57183600CC8D9C /* Resource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataClass.swift"; sourceTree = "<group>"; };
-		9E0A8AA81F57183600CC8D9C /* Resource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9E0A8AAB1F57541600CC8D9C /* ResourceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceDetailViewController.swift; sourceTree = "<group>"; };
 		9E0CA29B1F50A41900EF6F1B /* SearchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		9E2BD3DE1F5A026F00574248 /* SavedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedListViewController.swift; sourceTree = "<group>"; };
 		9E61613C1F50EA0200AAD264 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
+		9ECC1EBC1F60709B00596589 /* Resource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9ECC1EBD1F60709B00596589 /* Resource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9EE8D8551F4C953100477D6E /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		9EE8D8581F4CA3E700477D6E /* ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceCell.swift; sourceTree = "<group>"; };
 		9EE8D85A1F4CBD3500477D6E /* VAClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAClient.swift; sourceTree = "<group>"; };
@@ -60,8 +60,8 @@
 		9E03FA2B1F4B71A000A3E8AB = {
 			isa = PBXGroup;
 			children = (
-				9E0A8AA71F57183600CC8D9C /* Resource+CoreDataClass.swift */,
-				9E0A8AA81F57183600CC8D9C /* Resource+CoreDataProperties.swift */,
+				9ECC1EBC1F60709B00596589 /* Resource+CoreDataClass.swift */,
+				9ECC1EBD1F60709B00596589 /* Resource+CoreDataProperties.swift */,
 				9E03FA361F4B71A100A3E8AB /* VeteranCaregiverResource */,
 				9E03FA351F4B71A100A3E8AB /* Products */,
 			);
@@ -79,13 +79,13 @@
 			isa = PBXGroup;
 			children = (
 				9E03FA371F4B71A100A3E8AB /* AppDelegate.swift */,
+				9EE8D85A1F4CBD3500477D6E /* VAClient.swift */,
 				9EE8D8541F4C927500477D6E /* Model */,
 				9EE8D8571F4C953A00477D6E /* Controller */,
 				9E03FA3D1F4B71A100A3E8AB /* Main.storyboard */,
 				9E03FA401F4B71A100A3E8AB /* Assets.xcassets */,
 				9E03FA421F4B71A100A3E8AB /* LaunchScreen.storyboard */,
 				9E03FA451F4B71A100A3E8AB /* Info.plist */,
-				9EE8D85A1F4CBD3500477D6E /* VAClient.swift */,
 			);
 			path = VeteranCaregiverResource;
 			sourceTree = "<group>";
@@ -196,6 +196,7 @@
 			files = (
 				9E61613D1F50EA0200AAD264 /* IconCollectionViewCell.swift in Sources */,
 				9E0CA29C1F50A41900EF6F1B /* SearchListViewController.swift in Sources */,
+				9ECC1EBF1F60709B00596589 /* Resource+CoreDataProperties.swift in Sources */,
 				9EE8D8561F4C953100477D6E /* FilterViewController.swift in Sources */,
 				9EE8D8591F4CA3E800477D6E /* ResourceCell.swift in Sources */,
 				9E03FA381F4B71A100A3E8AB /* AppDelegate.swift in Sources */,
@@ -204,9 +205,8 @@
 				9E2BD3DF1F5A026F00574248 /* SavedListViewController.swift in Sources */,
 				9E0A8AAC1F57541600CC8D9C /* ResourceDetailViewController.swift in Sources */,
 				9E03FA4D1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld in Sources */,
-				9E0A8AAA1F57183600CC8D9C /* Resource+CoreDataProperties.swift in Sources */,
 				9EE8D85B1F4CBD3500477D6E /* VAClient.swift in Sources */,
-				9E0A8AA91F57183600CC8D9C /* Resource+CoreDataClass.swift in Sources */,
+				9ECC1EBE1F60709B00596589 /* Resource+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -155,8 +155,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             resourceEntity.subjectsString = subjectsString()
             resourceEntity.subjectsArray = dictionary["subjects"] as? [String]
             resourceEntity.linkName = dictionary["linkName"] as? String
-            resourceEntity.phoneNumber = dictionary["phoneNumber"] as? String
-            resourceEntity.geographicServiceLocations = dictionary["geographicServiceLocation"] as? [[String: AnyObject]]
             resourceEntity.saved = false
             
             return resourceEntity

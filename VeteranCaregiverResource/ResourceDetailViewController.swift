@@ -77,7 +77,7 @@ class ResourceDetailViewController: UITableViewController {
         } else {
             saveImage.image = UIImage(named: "saved")
             saveLabel.text = "Saved"
-            saveLabel.textColor = UIColor.green
+            saveLabel.textColor = UIColor(red: 46/255.0, green: 204/255.0, blue: 113/255.0, alpha: 1.0)
         }
         theSubjectsArray = resourceToShow.subjectsArray!
         shareMessage = "I found this resource on the Veteran Cargiver Resource iPhone App and thought it might be useful for you. \n\n\(resourceToShow.title)\n\n\(resourceToShow.linkName!)\n\n \(resourceToShow.content!)"
@@ -145,12 +145,12 @@ class ResourceDetailViewController: UITableViewController {
             resourceToShow.saved = true
             saveImage.image = UIImage(named: "saved")
             saveLabel.text = "Saved"
-            saveLabel.textColor = UIColor.green
+            saveLabel.textColor = UIColor(red: 46/255.0, green: 204/255.0, blue: 113/255.0, alpha: 1.0)
         } else {
             resourceToShow.saved = false
             saveImage.image = UIImage(named: "unSaved")
             saveLabel.text = "Save"
-            saveLabel.textColor = UIColor.black
+            saveLabel.textColor = UIColor.white
         }
         
         do {
