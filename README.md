@@ -1,11 +1,11 @@
 # Veteran Caregiver Resource
-> Veteran Caregiver Resource is an app for users to easily search, save and share resources from an open database API provided by the U.S. Veterans Affairs.
+> Veteran Caregiver Resource is an app for users to easily search, save and share resources from an open database API provided by the U.S. Department of Veterans Affairs.
 
 [![Swift Version][swift-image]][swift-url]
 [![Build Status][travis-image]][travis-url] 
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 
-This app gives any U.S. servicemember, veteran, their caregiver, family member or advocate access to a comprehensive list of over 2,000+ federal, state, and NGO resources compiled by U.S Dept of Veteran Affairs. The range of resources include: 
+This app gives any U.S. servicemember, veteran, their caregivers, family members or advocates access to a comprehensive list of over 2,000+ federal, state, and NGO resources compiled by U.S Dept of Veteran Affairs. The range of resources include: 
 	
 	* Health, 
 	* Benefits & Compensation
