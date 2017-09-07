@@ -1,22 +1,35 @@
-# Product Name
-> Short blurb about what your product does.
+# Veteran Caregiver Resource
+> Veteran Caregiver Resource is an app for users to easily search, save and share resources from an open database API provided by the U.S. Veterans Affairs.
 
 [![Swift Version][swift-image]][swift-url]
 [![Build Status][travis-image]][travis-url] 
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 
+This app gives any U.S. servicemember, veteran, their caregiver, family member or advocate access to a comprehensive list of over 2,000+ federal, state, and NGO resources compiled by U.S Dept of Veteran Affairs. The range of resources include: 
+	
+	* Health, 
+	* Benefits & Compensation
+ 	* Housing
+    * Education & Training
+    * Employment
+    * Family & Caregiver Support
+    * Transportation & Travel
+    * Homeless Assistance
+    * Other Services & Resources 
 
-One to two paragraph statement about your product and what it does.
+Veteran Caregiver Resource app peforms a get request to the Veteran Affairs API, downloads and parses a JSON file into a persistant Core Data database. The user can initially filter through all the resources for a specific subject, then search through all the titles, description and subects of that filter. Once the resource is found, the user can see the details of that resource, go to the resource website, save it to a persistent list of saved resource and then share it with anyone through textmessage, email or social media.
+
+for 
 
 ![](header.png)
 
 ## Features
 
-- [x] Feature 1
-- [x] Feature 2
-- [x] Feature 3
-- [x] Feature 4
-- [x] Feature 5
+- [x] A persistent database of resources utilizing Core Data
+- [x] Quickly search through all titles, descriptions, and subjects of resources with UISearchController 
+- [x] Create a saved list of resources, that persists with your app.
+- [x] Share a resource with UIActivityController
+- [x] Go to resource websites from the app.
 
 ## Requirements
 
