@@ -86,27 +86,9 @@ class ResourceDetailViewController: UITableViewController {
     
     // Customize static cells
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
         cell.backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
         cell.textLabel?.textColor = UIColor.white
-//        if let textLabel = cell.textLabel {
-//            textLabel.textColor = UIColor.white
-//            textLabel.highlightedTextColor = textLabel.textColor
-//        }
-//        if indexPath.section == 0 && indexPath.row == 1 {
-//            
-//        }
-////        if let detailLabel = cell.detailTextLabel {
-////            detailLabel.textColor = UIColor(white: 1.0, alpha: 0.4)
-////            detailLabel.highlightedTextColor = detailLabel.textColor
-////        }
-//        
-//        let selectionView = UIView(frame: CGRect.zero)
-//        selectionView.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
-//        cell.selectedBackgroundView = selectionView
-//        
-        
-        
-        
     }
     
     // TABLEVIEW 
@@ -169,7 +151,7 @@ class ResourceDetailViewController: UITableViewController {
 // For Title Cell Colleciton view
 extension ResourceDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("nuberofitems insection")
+        
         return theSubjectsArray.count
     }
     
@@ -177,7 +159,7 @@ extension ResourceDetailViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! IconCollectionViewCell
         
         cell.collectionImageView.image = UIImage(named: "\(theSubjectsArray[indexPath.row])")
-        print("Cellforitem at")
+       
         return cell
     }
 }

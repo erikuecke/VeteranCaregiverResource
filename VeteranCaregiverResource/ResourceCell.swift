@@ -58,8 +58,6 @@ class ResourceCell: UITableViewCell {
         
         photoImageView.image = thumbnail(for: resource)
         collectionView.reloadData()
-        
-        
     }
     
     // Add image to cell
@@ -70,8 +68,6 @@ class ResourceCell: UITableViewCell {
         } else {
             return UIImage(named: "unSaved")!
         }
-        
-  
     }
 
 
