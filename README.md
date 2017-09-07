@@ -54,7 +54,7 @@ Virtual Tourist is written in Swift 3. You can download it and run it in any ver
 
 Your Name – erikuecke@gmail.com
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[https://github.com/erikuecke](https://github.com/erikuecke)
 
 [swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
 [swift-url]: https://swift.org/
