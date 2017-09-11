@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Managed Object Context
     lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
     
-
+    // testing forced push
     // MARK: JSON IMPORT/ CORE DATA CHECK
     
     var resources = [Resource]()
