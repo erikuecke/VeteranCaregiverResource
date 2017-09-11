@@ -57,6 +57,7 @@ class SavedListViewController: UITableViewController, UISearchBarDelegate {
         tableView.backgroundColor = UIColor(red: 11/255.0, green: 70/255.0, blue: 123/255.0, alpha: 1.0)
         tableView.separatorColor = UIColor(red: 79/255.0, green: 102/255.0, blue: 140/255.0, alpha: 1.0)
         tableView.indicatorStyle = .default
+        navigationItem.rightBarButtonItem = editButtonItem
         performFetch()
         
         
@@ -111,6 +112,25 @@ class SavedListViewController: UITableViewController, UISearchBarDelegate {
         
         return cell
     }
+    
+    // Delete Locaiton/Object from table view
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCellEditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let resource = fetchedResultsController.object(at: indexPath)
+            
+            resource.saved = false
+            
+            do {
+                try managedObjectContext.save()
+            } catch {
+                fatalCoreDataError(error)
+            }
+        }
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

@@ -13,6 +13,8 @@
 		9E03FA441F4B71A100A3E8AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E03FA421F4B71A100A3E8AB /* LaunchScreen.storyboard */; };
 		9E03FA4D1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E03FA4B1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld */; };
 		9E07795E1F5F45EF009E144C /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E07795D1F5F45EF009E144C /* FilterCell.swift */; };
+		9E0855DB1F6726EC00FC9C0B /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0855DA1F6726EC00FC9C0B /* GCDBlackBox.swift */; };
+		9E0855DD1F67274800FC9C0B /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0855DC1F67274800FC9C0B /* Animations.swift */; };
 		9E0A8AAC1F57541600CC8D9C /* ResourceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0A8AAB1F57541600CC8D9C /* ResourceDetailViewController.swift */; };
 		9E0CA29C1F50A41900EF6F1B /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0CA29B1F50A41900EF6F1B /* SearchListViewController.swift */; };
 		9E2BD3DF1F5A026F00574248 /* SavedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2BD3DE1F5A026F00574248 /* SavedListViewController.swift */; };
@@ -34,6 +36,8 @@
 		9E03FA451F4B71A100A3E8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E03FA4C1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VeteranCaregiverResource.xcdatamodel; sourceTree = "<group>"; };
 		9E07795D1F5F45EF009E144C /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		9E0855DA1F6726EC00FC9C0B /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		9E0855DC1F67274800FC9C0B /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		9E0A8AAB1F57541600CC8D9C /* ResourceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceDetailViewController.swift; sourceTree = "<group>"; };
 		9E0CA29B1F50A41900EF6F1B /* SearchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		9E2BD3DE1F5A026F00574248 /* SavedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedListViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			children = (
 				9E03FA371F4B71A100A3E8AB /* AppDelegate.swift */,
 				9EE8D85A1F4CBD3500477D6E /* VAClient.swift */,
+				9E0855DC1F67274800FC9C0B /* Animations.swift */,
 				9EE8D8541F4C927500477D6E /* Model */,
 				9EE8D8571F4C953A00477D6E /* Controller */,
 				9E03FA3D1F4B71A100A3E8AB /* Main.storyboard */,
@@ -117,6 +122,7 @@
 				9E2BD3DE1F5A026F00574248 /* SavedListViewController.swift */,
 				9E0A8AAB1F57541600CC8D9C /* ResourceDetailViewController.swift */,
 				9E2BD3DD1F587F6300574248 /* Custom Cells */,
+				9E0855DA1F6726EC00FC9C0B /* GCDBlackBox.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -200,10 +206,12 @@
 				9EE8D8561F4C953100477D6E /* FilterViewController.swift in Sources */,
 				9EE8D8591F4CA3E800477D6E /* ResourceCell.swift in Sources */,
 				9E03FA381F4B71A100A3E8AB /* AppDelegate.swift in Sources */,
+				9E0855DB1F6726EC00FC9C0B /* GCDBlackBox.swift in Sources */,
 				9E07795E1F5F45EF009E144C /* FilterCell.swift in Sources */,
 				9EE8D85D1F4CDEE900477D6E /* Functions.swift in Sources */,
 				9E2BD3DF1F5A026F00574248 /* SavedListViewController.swift in Sources */,
 				9E0A8AAC1F57541600CC8D9C /* ResourceDetailViewController.swift in Sources */,
+				9E0855DD1F67274800FC9C0B /* Animations.swift in Sources */,
 				9E03FA4D1F4B8A8B00A3E8AB /* VeteranCaregiverResource.xcdatamodeld in Sources */,
 				9EE8D85B1F4CBD3500477D6E /* VAClient.swift in Sources */,
 				9ECC1EBE1F60709B00596589 /* Resource+CoreDataClass.swift in Sources */,

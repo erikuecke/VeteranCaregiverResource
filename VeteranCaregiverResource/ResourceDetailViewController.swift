@@ -44,6 +44,10 @@ class ResourceDetailViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    // Pop on disapearing
+    override func viewWillDisappear(_ animated: Bool) {
+        let _ = navigationController?.popViewController(animated: true)
+    }
     // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()

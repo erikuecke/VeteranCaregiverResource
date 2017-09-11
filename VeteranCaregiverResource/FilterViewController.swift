@@ -91,6 +91,11 @@ class FilterViewController: UITableViewController {
     var resources = [Resource]()
     func checkForData() {
         
+        // Activity indicator
+        performUIUpdatesOnMain {
+            VAClient.Animations.beginActivityIndicator(view: self.view)
+        }
+        
         let fetchRequest = NSFetchRequest<Resource>()
         // 2
         let entity = Resource.entity()
@@ -109,19 +114,27 @@ class FilterViewController: UITableViewController {
         if resources.count == 0 {
             VAClient.sharedInstance().getVAResources(completionHandlerForGetVAResources: { ( arrayOfResources, error) in
                 
-                if let error = error {
-                    print("Something is wrong with download: \(error.description)")
+                if let arrayOfResources = arrayOfResources {
+                    self.saveInCoreDataWith(array: arrayOfResources)
+                    performUIUpdatesOnMain {
+                        VAClient.Animations.endActivityIndicator(view: self.view)
+                    }
                 } else {
-                    
-                    
-                    self.saveInCoreDataWith(array: arrayOfResources!)
-                    
+                    let errorString = String(describing: error)
+                    performUIUpdatesOnMain {
+                        VAClient.Animations.endActivityIndicator(view: self.view)
+                    }
+                    self.errorAlert(errorString)
                 }
+                
                 
             })
             
             
         } else {
+            performUIUpdatesOnMain {
+                VAClient.Animations.endActivityIndicator(view: self.view)
+            }
             print("Core Data Full")
         }
     }
@@ -161,6 +174,15 @@ class FilterViewController: UITableViewController {
         return nil
     }
     
+}
+
+// For all error alerts in viewcontrollers
+extension UIViewController {
+    func errorAlert(_ errorString: String) {
+        let alertController = UIAlertController(title: "Error", message: "Unable to retrieve the resource list. Please check your network connetion and try the refresh button.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 
