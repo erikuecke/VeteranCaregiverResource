@@ -100,7 +100,6 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections?[section]
-        print("number of objects is: \(sectionInfo!.numberOfObjects)")
         return sectionInfo!.numberOfObjects
     }
     

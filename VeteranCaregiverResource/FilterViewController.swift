@@ -135,7 +135,7 @@ class FilterViewController: UITableViewController {
             performUIUpdatesOnMain {
                 VAClient.Animations.endActivityIndicator(view: self.view)
             }
-            print("Core Data Full")
+//            print("Core Data Full")
         }
     }
     
