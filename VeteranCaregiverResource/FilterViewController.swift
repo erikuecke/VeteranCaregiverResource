@@ -32,7 +32,7 @@ class FilterViewController: UITableViewController {
     // View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        checkForData()
         let barHeightInt = Int((self.navigationController?.navigationBar.frame.size.height)!) + Int((self.tabBarController?.tabBar.frame.size.height)!) + Int(UIApplication.shared.statusBarFrame.size.height)
         
         let tableHeight = Int(tableView.frame.size.height) - barHeightInt
@@ -86,6 +86,79 @@ class FilterViewController: UITableViewController {
             }
             controller.managedObjectContext = managedObjectContext
         }
+    }
+    
+    var resources = [Resource]()
+    func checkForData() {
+        
+        let fetchRequest = NSFetchRequest<Resource>()
+        // 2
+        let entity = Resource.entity()
+        fetchRequest.entity = entity
+        // 3
+        
+        do {
+            // 4
+            resources = try managedObjectContext.fetch(fetchRequest)
+        } catch {
+            fatalCoreDataError(error)
+        }
+        
+        
+        
+        if resources.count == 0 {
+            VAClient.sharedInstance().getVAResources(completionHandlerForGetVAResources: { ( arrayOfResources, error) in
+                
+                if let error = error {
+                    print("Something is wrong with download: \(error.description)")
+                } else {
+                    
+                    
+                    self.saveInCoreDataWith(array: arrayOfResources!)
+                    
+                }
+                
+            })
+            
+            
+        } else {
+            print("Core Data Full")
+        }
+    }
+    
+    // Save in core data method
+    private func saveInCoreDataWith(array: [[String: AnyObject]]) {
+        _ = array.map{self.createResourceEntityFrom(dictionary: $0)}
+        
+        do {
+            try managedObjectContext.save()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    // Create Intity from Array Dict
+    private func createResourceEntityFrom(dictionary: [String: AnyObject]) -> NSManagedObject? {
+        
+        if let resourceEntity = NSEntityDescription.insertNewObject(forEntityName: "Resource", into: managedObjectContext) as? Resource {
+            resourceEntity.title = dictionary["title"] as! String
+            resourceEntity.content = dictionary["content"] as? String
+            // Subjects array into string to sort
+            let subjectsString = { () -> String in
+                var stringFromArray = ""
+                for subject in dictionary["subjects"] as! [String] {
+                    stringFromArray = stringFromArray + "\(subject) "
+                }
+                return stringFromArray
+            }
+            resourceEntity.subjectsString = subjectsString()
+            resourceEntity.subjectsArray = dictionary["subjects"] as? [String]
+            resourceEntity.linkName = dictionary["linkName"] as? String
+            resourceEntity.saved = false
+            
+            return resourceEntity
+        }
+        return nil
     }
     
 }
