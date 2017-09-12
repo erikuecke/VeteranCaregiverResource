@@ -41,7 +41,7 @@ Veteran Caregiver Resource app peforms a get request to the Veteran Affairs API,
 ## Installation
 
 ## Usage
-Virtual Tourist is written in Swift 3. You can download it and run it in any version of Xcode and Simulator.
+Veteran Caregiver Resource is written in Swift 3. You can download it and run it in any version of Xcode and Simulator.
 
 ## Contributing
 1. Fork it!

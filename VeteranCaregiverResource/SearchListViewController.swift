@@ -50,6 +50,10 @@ class SearchListViewController: UITableViewController, UISearchBarDelegate {
         fetchedResultsController.delegate = nil
     }
     
+    // View will appear
+//    override func viewWillAppear(_ animated: Bool) {
+//        performFetch(subjectFilter)
+//    }
     // View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
